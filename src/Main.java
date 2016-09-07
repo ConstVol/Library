@@ -22,6 +22,8 @@ public class Main {
         randomG.randomyze(library);
         library.checkList();
 
+        connect();
+
 
 
 
@@ -34,7 +36,7 @@ public class Main {
         Connection conn = null;
         try {
             // db parameters
-            String url = "jdbc:sqlite:C:/sqlite/db/chinook.db";
+            String url = "jdbc:sqlite:test.db";
             // create a connection to the database
             conn = DriverManager.getConnection(url);
 
