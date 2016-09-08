@@ -59,19 +59,7 @@ public class DBConnector {
             // it probably means no database file is found
             System.err.println(e.getMessage());
         }
-        finally
-        {
-            try
-            {
-                if(x != null)
-                    x.close();
-            }
-            catch(SQLException e)
-            {
-                // connection close failed.
-                System.err.println(e);
-            }
-        }
+
 
 
     }
