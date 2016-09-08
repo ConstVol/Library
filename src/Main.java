@@ -9,6 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+
         Library library = new Library();
 
         RandomG randomG = new RandomG();
@@ -20,6 +21,8 @@ public class Main {
         ComicBook batman = new ComicBook("BATMAN", 1999, "!roJloBKa l7puHL|a", 13006, "DC");
 
         DBConnector connection = new DBConnector() ;
+
+        connection.addItem(hr,connection.connect() );
 
 
 

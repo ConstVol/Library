@@ -1,39 +1,30 @@
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 /**
  * Created by Андрей on 08.09.2016.
  */
 public class DBConnector {
 
-    private static java.sql.Connection conn;
+    private static Connection conn;
 
-    public static java.sql.Connection connect() {
-        java.sql.Connection conn = null;
+    public static Connection connect() {
+
         try {// create a database connection
             // db parameters
-            String url = "jdbc:sqlite:test.db";
+            String url = "jdbc:sqlite:E:\\test.db";
             // create a connection to the database
             conn = DriverManager.getConnection(url);
 
             System.out.println("DBConnector to SQLite has been established.");
 
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
         }
+
         return conn;
     }
-    public static void printDb(java.sql.Connection x){
+    public static void printDb(Connection x){
 
 
 
@@ -59,8 +50,28 @@ public class DBConnector {
             // it probably means no database file is found
             System.err.println(e.getMessage());
         }
-
+        try {
+            x.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
 
     }
+    public static void addItem(Item x, Connection y){
+
+        try {
+            Statement statement = y.createStatement();
+
+            statement.executeUpdate("insert into books values(" + " ' " +
+                    x.getName()+" ', ' "+x.getAuthor()+" ', ' ', 0 , ' '  );");
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
 }

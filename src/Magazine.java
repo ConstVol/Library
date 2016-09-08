@@ -14,7 +14,7 @@ public class Magazine extends Item {
     }
 
     public Magazine(String name, int year, String author, int id, String sCategory) {
-        super(name, year, author, id);
+            super(name, year, author, id);
 
         this.sCategory = sCategory;
     }

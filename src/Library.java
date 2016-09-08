@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
  * Created by Андрей on 05.09.2016.
  */
-public class Library {
+public class Library implements faceLibrary {
 
     ArrayList<Item> libraryList = new ArrayList<Item>();
 
@@ -84,6 +84,11 @@ public class Library {
 
         return result;
 
+
+    }
+
+    @Override
+    public void getItem(String x) {
 
     }
 }
